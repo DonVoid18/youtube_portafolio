@@ -13,6 +13,7 @@ html{
 }
 body{
     counter-reset: item;
+    counter-reset: section;
 }
 :root{
     --color-principal: #4361ee;
@@ -27,6 +28,10 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 10px 30px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 /* css del logo */
 .container_logo_page{
@@ -135,4 +140,74 @@ body{
 }
 .container_side ul li:hover a{
     color: var(--color-principal);
+}
+
+/* css de main */
+#main{
+    padding: 0 300px;
+    max-width: 1600px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+#presentation{
+    width: 100%;
+    height: 100vh;
+    
+    /* guia de flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text_greeting{
+    color: var(--color-principal);
+}
+.text_name_profile{
+    font-size: 3.1rem;
+    padding: 20px 0px 10px 0px;
+}
+.text_description_profile{
+    width: 80%;
+}
+.text_description_profile p a{
+    color: var(--color-principal);
+    text-decoration: none;
+}
+
+/* section acerca de */
+#acercaDe{
+    padding: 100px 50px;
+}
+.container_description_section{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 20px;
+}
+.container_image_section img{
+    width: 100%;
+}
+/* css de los titulos de cada section */
+.container_title{
+    padding-bottom: 20px;
+}
+.container_title{
+    counter-increment: section 1;
+}
+.text_title_section{
+    text-transform: capitalize;
+}
+.text_title_section::before{
+    content: "0" counter(section) ". ";
+    color: var(--color-principal);
+    padding-right: 3px;
+}
+.text_title_section::after{
+    content: "";
+    display: inline-block;
+    width: 300px;
+    height: 2px;
+    background-color: var(--color-principal);
+    position: relative;
+    left: 20px;
+    bottom: 5px;
 }
